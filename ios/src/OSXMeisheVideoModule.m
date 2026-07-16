@@ -402,7 +402,9 @@ UNI_EXPORT_METHOD(@selector(shooting:callback:))
     }
     self.completingSuccess = YES;
     UIViewController *presenter = [self presenter];
-    if (presenter.presentedViewController) {
+    if (presenter) {
+        // `presenter` is the visible SDK editor in the usual case. Dismissing it
+        // directly also dismisses any export sheet it owns before JS navigates.
         [presenter dismissViewControllerAnimated:YES completion:^{
             [self finishSuccess:outputPath];
         }];

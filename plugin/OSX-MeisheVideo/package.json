@@ -85,9 +85,6 @@
         "Frameworks/NvStreamingSdkCore.framework",
         "Frameworks/NvMSAICutter.framework"
       ],
-      "assets": [
-        "BundleResources/Assets.xcassets"
-      ],
       "resources": [
         "BundleResources"
       ],
