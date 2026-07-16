@@ -1,6 +1,7 @@
 #import "OSXMeisheVideoModule.h"
 
 #import <AVFoundation/AVFoundation.h>
+#import <math.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <UIKit/UIKit.h>
 #import <NvShortVideoCore/NvShortVideoCore-Swift.h>
@@ -13,12 +14,14 @@
 @property (nonatomic, assign) NSTimeInterval maxTime;
 @property (nonatomic, assign) BOOL publishMode;
 @property (nonatomic, assign) BOOL exporting;
+@property (nonatomic, assign) BOOL completingSuccess;
 @property (nonatomic, assign) BOOL sessionFinished;
 @property (nonatomic, strong) NvModuleManager *moduleManager;
 @property (nonatomic, strong) UIImagePickerController *picker;
 @property (nonatomic, copy) NSString *reeditProjectId;
 @property (nonatomic, weak) UIViewController *reeditPresenter;
 @property (nonatomic, strong) NSKeyValueObservation *reeditPresentationObservation;
+@property (nonatomic, strong) NSKeyValueObservation *instanceStateObservation;
 
 @end
 
@@ -56,6 +59,11 @@ UNI_EXPORT_METHOD(@selector(shooting:callback:))
         [self invoke:callback result:@{ @"errorCode": @"invalid_options", @"errorMessage": @"缺少插件参数" }];
         return;
     }
+    BOOL isPublish = [[self stringValue:options[@"mode"]] caseInsensitiveCompare:@"publish"] == NSOrderedSame;
+    if (forcedMode.length == 0 && (!isPublish || options[@"maxTime"] == nil)) {
+        [self invoke:callback result:@{ @"errorCode": @"invalid_options", @"errorMessage": @"start 调用必须传入 mode: 'publish' 和 maxTime" }];
+        return;
+    }
     if (![self beginSession:options callback:callback forcedMode:forcedMode]) {
         return;
     }
@@ -73,7 +81,7 @@ UNI_EXPORT_METHOD(@selector(shooting:callback:))
         [self presentPublishPicker];
     } else {
         [self presentEditorWithConfig:[self editorConfig] completion:^(BOOL finished) {
-            if (!finished) {
+            if (!finished && !self.exporting && !self.completingSuccess) {
                 [self finishCancelled];
             }
         }];
@@ -98,7 +106,9 @@ UNI_EXPORT_METHOD(@selector(shooting:callback:))
         self.publishMode = [mode caseInsensitiveCompare:@"publish"] == NSOrderedSame;
         self.maxTime = MAX(0, [self numberValue:options[@"maxTime"]]);
         self.exporting = NO;
+        self.completingSuccess = NO;
         self.reeditProjectId = nil;
+        [self watchInstanceDestruction];
         return YES;
     }
 }
@@ -205,7 +215,7 @@ UNI_EXPORT_METHOD(@selector(shooting:callback:))
                                                                    message:@"请选择单个视频文件"
                                                             preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:@"重新选择" style:UIAlertActionStyleDefault handler:^(__unused UIAlertAction *action) {
-        [self presentPublishPicker];
+        [self reopenPublishPickerAfterAlertDismissal];
     }]];
     [[self presenter] presentViewController:alert animated:YES completion:nil];
 }
@@ -216,13 +226,27 @@ UNI_EXPORT_METHOD(@selector(shooting:callback:))
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"视频时长超限"
                                                                    message:message
                                                             preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"重新选择" style:UIAlertActionStyleCancel handler:^(__unused UIAlertAction *action) {
-        [self presentPublishPicker];
+    [alert addAction:[UIAlertAction actionWithTitle:@"重新选择" style:UIAlertActionStyleDefault handler:^(__unused UIAlertAction *action) {
+        [self reopenPublishPickerAfterAlertDismissal];
     }]];
     [alert addAction:[UIAlertAction actionWithTitle:@"进入编辑" style:UIAlertActionStyleDefault handler:^(__unused UIAlertAction *action) {
-        [self openSelectedVideoForEdit:videoPath];
+        // UIAlertController dismisses after its action handler. Defer one main-loop turn so the SDK
+        // receives the real page controller rather than the disappearing alert controller.
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self openSelectedVideoForEdit:videoPath];
+        });
     }]];
     [[self presenter] presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)reopenPublishPickerAfterAlertDismissal
+{
+    // UIAlertController dismisses after its action handler. Present from the page on the next run loop.
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (!self.sessionFinished) {
+            [self presentPublishPicker];
+        }
+    });
 }
 
 - (void)openSelectedVideoForEdit:(NSString *)videoPath
@@ -283,6 +307,30 @@ UNI_EXPORT_METHOD(@selector(shooting:callback:))
     [self.moduleManager startEditWithPresent:presenter config:config with:completion];
 }
 
+- (void)watchInstanceDestruction
+{
+    self.instanceStateObservation = nil;
+    DCUniSDKInstance *instance = self.uniInstance;
+    if (!instance) return;
+    if (instance.uniState == DCUniInstanceDestroy) {
+        [self finishCancelled];
+        return;
+    }
+    __weak typeof(self) weakSelf = self;
+    self.instanceStateObservation = [instance observeValueForKeyPath:@"uniState"
+                                                              options:NSKeyValueObservingOptionNew
+                                                        changeHandler:^(__unused DCUniSDKInstance *observedInstance,
+                                                                        NSDictionary<NSKeyValueChangeKey,id> *change) {
+        NSNumber *state = [change[NSKeyValueChangeNewKey] isKindOfClass:NSNumber.class]
+            ? change[NSKeyValueChangeNewKey]
+            : nil;
+        if (state.integerValue != DCUniInstanceDestroy) return;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf finishCancelled];
+        });
+    }];
+}
+
 - (void)publishWithProjectId:(NSString *)projectId
               coverImagePath:(NSString *)coverImagePath
                     hasDraft:(BOOL)hasDraft
@@ -319,6 +367,7 @@ UNI_EXPORT_METHOD(@selector(shooting:callback:))
         [self showEditedDurationErrorOn:nil];
         return;
     }
+    self.completingSuccess = YES;
     UIViewController *presenter = [self presenter];
     if (presenter.presentedViewController) {
         [presenter dismissViewControllerAnimated:YES completion:^{
@@ -415,6 +464,7 @@ UNI_EXPORT_METHOD(@selector(shooting:callback:))
         if (self.sessionFinished) return;
         self.sessionFinished = YES;
         self.exporting = NO;
+        self.completingSuccess = NO;
         callback = self.sessionCallback;
         self.sessionCallback = nil;
         self.picker.delegate = nil;
@@ -422,6 +472,7 @@ UNI_EXPORT_METHOD(@selector(shooting:callback:))
         self.moduleManager.delegate = nil;
         self.moduleManager.compileDelegate = nil;
         self.reeditPresentationObservation = nil;
+        self.instanceStateObservation = nil;
         self.reeditPresenter = nil;
         if (self.reeditProjectId.length > 0) {
             [self.moduleManager exitVideoEdit:self.reeditProjectId];

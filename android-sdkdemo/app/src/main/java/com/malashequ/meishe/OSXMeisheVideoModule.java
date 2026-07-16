@@ -37,6 +37,12 @@ public class OSXMeisheVideoModule extends UniModule {
             invokeFailure(callback, "context_unavailable", "APP 上下文不可用");
             return;
         }
+        if (forcedMode == null && (options == null
+                || !MeisheResultContract.MODE_PUBLISH.equals(options.getString("mode"))
+                || !options.containsKey("maxTime"))) {
+            invokeFailure(callback, "invalid_options", "start 调用必须传入 mode: 'publish' 和 maxTime");
+            return;
+        }
 
         String sessionId = options == null ? null : options.getString("sessionId");
         if (TextUtils.isEmpty(sessionId)) {
