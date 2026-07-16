@@ -20,6 +20,8 @@ jobs:
         run: |
           set -eo pipefail
           test -f libBase/libs/NvAndroidStreamingSdk.jar
+          test -f libBase/libs/nvconvertorlib.aar
+          test -f libBase/libs/cafconvertor.aar
           test -f libBase/libs/extension-flac-release.aar
           test -f libBase/libs/libMeicamAI-3.8.1.1.aar
           test -f libBase/libs/library-core-release.aar
