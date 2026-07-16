@@ -34,6 +34,12 @@ targets:
         HEADER_SEARCH_PATHS:
           - "$(SRCROOT)/Vendor/DCloudSDK/DCUni"
           - "$(SRCROOT)/Vendor/DCloudSDK/weexHeader"
+        # XcodeGen links xcframeworks but does not add their selected device slices
+        # to clang's framework lookup path for this static-library target.
+        FRAMEWORK_SEARCH_PATHS:
+          - "$(SRCROOT)/ios/Frameworks/NvShortVideoCore.xcframework/ios-arm64"
+          - "$(SRCROOT)/ios/Frameworks/NvStreamingSdkCore.xcframework/ios-arm64"
+          - "$(SRCROOT)/ios/Frameworks/NvMSAICutter.xcframework/ios-arm64"
     dependencies:
       - framework: ios/Frameworks/NvShortVideoCore.xcframework
       - framework: ios/Frameworks/NvStreamingSdkCore.xcframework
