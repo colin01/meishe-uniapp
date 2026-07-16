@@ -39,4 +39,8 @@ dependencies {
     implementation rootProject.ext.dependencies.extConstraintLayout
     implementation project(':libBase')
     implementation project(path: ':MMakeup')
+    // libBase keeps local AARs compile-only so it can be published as an AAR.
+    // This module imports Logger directly, therefore declare its own compile
+    // classpath dependency. The final plugin packages the AAR beside libBase.
+    compileOnly files('../libBase/libs/nvconvertorlib.aar')
 }

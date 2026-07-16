@@ -53,4 +53,6 @@ dependencies {
     api project(path: ':libEngine')
     implementation project(path: ':libBase')
     implementation project(path: ':libNet')
+    // ResolutionBottomDialog imports cafconvertor resources directly.
+    compileOnly files('../libBase/libs/cafconvertor.aar')
 }

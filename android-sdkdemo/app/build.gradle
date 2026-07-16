@@ -107,4 +107,7 @@ dependencies {
     implementation project(path: ':MArScene')
     implementation project(path: ':MCutSame')
     implementation project(path: ':MMakeup')
+    // Watermark creation imports cafconvertor classes directly. Keep it out of
+    // this AAR's embedded dependencies and deliver it beside the plugin AARs.
+    compileOnly files('../libBase/libs/cafconvertor.aar')
 }
