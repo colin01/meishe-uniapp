@@ -72,7 +72,9 @@ jobs:
           status=${PIPESTATUS[0]}
           if [ "$status" -ne 0 ]; then
             echo "::error title=Android Gradle build failed::The matching lines below identify the compile failure."
-            grep -E "FAILURE:|What went wrong:|\* Exception|(^| )error:|^e: |Caused by:" build/ci-gradle.log | tail -n 80 || true
+            grep -a -E "FAILURE:|What went wrong:|\* Exception|(^| )error:|^e: |Caused by:" build/ci-gradle.log | tail -n 80 || true
+            echo "::error title=Android Gradle build log tail::No matching compiler line may exist when Gradle exits before task execution; the final 200 log lines follow."
+            tail -n 200 build/ci-gradle.log || true
             exit "$status"
           fi
 
