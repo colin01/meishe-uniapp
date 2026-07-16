@@ -1,5 +1,6 @@
 package com.meishe.sdkdemo;
 
+import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
@@ -106,7 +107,9 @@ public class MSApplication extends BaseApp {
         mContext = context.getApplicationContext();
         AndroidOS.initConfig(mContext);
         Fresco.initialize(mContext);
-        NvsServerClient.get().initConfig(mContext);
+        if (mContext instanceof Application) {
+            NvsServerClient.get().initConfig((Application) mContext);
+        }
         NvsStreamingContext.setIconSize(1);
         NvsStreamingContext.setMaxReaderCount(10);
         String licensePath = "assets:/meishesdk.lic";

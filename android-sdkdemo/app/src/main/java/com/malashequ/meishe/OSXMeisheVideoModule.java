@@ -60,7 +60,8 @@ public class OSXMeisheVideoModule extends UniModule {
             if (!MeisheResultContract.MODE_PUBLISH.equals(mode)) {
                 mode = MeisheResultContract.MODE_EDIT;
             }
-            int maxTimeSeconds = options == null ? 0 : Math.max(0, options.getIntValue("maxTime"));
+            Integer maxTime = options == null ? null : options.getInteger("maxTime");
+            int maxTimeSeconds = maxTime == null ? 0 : Math.max(0, maxTime);
             intent.putExtra(MeisheResultContract.EXTRA_SESSION_ID, sessionId);
             intent.putExtra(MeisheResultContract.EXTRA_MODE, mode);
             intent.putExtra(MeisheResultContract.EXTRA_MAX_TIME_SECONDS, maxTimeSeconds);

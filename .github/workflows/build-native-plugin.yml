@@ -22,6 +22,10 @@ jobs:
           test -f libBase/libs/NvAndroidStreamingSdk.jar
           test -f libBase/libs/nvconvertorlib.aar
           test -f libBase/libs/cafconvertor.aar
+          test -f libBase/libs/NvPhotoAlbumHelperLib.jar
+          test -f libBase/libs/nvmusicLyricslib.jar
+          test -f libBase/libs/nvjokeCaptionlib.jar
+          test -f libBase/libs/effectlib.jar
           test -f libBase/libs/extension-flac-release.aar
           test -f libBase/libs/libMeicamAI-3.8.1.1.aar
           test -f libBase/libs/library-core-release.aar
@@ -101,9 +105,9 @@ jobs:
           cp android-sdkdemo/MCutSame/build/outputs/aar/MCutSame-release.aar _artifacts/android/
           cp android-sdkdemo/MMakeup/build/outputs/aar/MMakeup-release.aar _artifacts/android/
           cp android-sdkdemo/libBase/libs/*.aar _artifacts/android/
-          # The Meishe Java API is a separate SDK JAR. libBase's compiled classes reference
-          # it, so it must travel with the AAR set consumed by uni-app hosts.
-          cp android-sdkdemo/libBase/libs/NvAndroidStreamingSdk.jar _artifacts/android/
+          # libBase's SDK JAR dependencies are not embedded in an AAR. Keep every one
+          # beside the AAR set so uni-app hosts can resolve them at runtime.
+          cp android-sdkdemo/libBase/libs/*.jar _artifacts/android/
           cp android-sdkdemo/app/src/main/assets/meishesdk.lic _artifacts/android/assets/
           find _artifacts/android -type f -print
 
