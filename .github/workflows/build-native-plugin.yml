@@ -54,10 +54,12 @@ jobs:
 
       - name: Build Android AARs
         working-directory: android-sdkdemo
+        shell: bash
         run: |
-          set -eo pipefail
+          set -o pipefail
           printf 'sdk.dir=%s\n' "${ANDROID_SDK_ROOT:-$ANDROID_HOME}" > local.properties
           chmod +x gradlew
+          mkdir -p build
           ./gradlew \
             --stacktrace \
             :app:assembleRelease \
@@ -66,7 +68,21 @@ jobs:
             :libNet:assembleRelease \
             :MArScene:assembleRelease \
             :MCutSame:assembleRelease \
-            :MMakeup:assembleRelease
+            :MMakeup:assembleRelease 2>&1 | tee build/ci-gradle.log
+          status=${PIPESTATUS[0]}
+          if [ "$status" -ne 0 ]; then
+            echo "::error title=Android Gradle build failed::The matching lines below identify the compile failure."
+            grep -E "FAILURE:|What went wrong:|\* Exception|(^| )error:|^e: |Caused by:" build/ci-gradle.log | tail -n 80 || true
+            exit "$status"
+          fi
+
+      - name: Upload Android build log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: osx-meishe-video-android-build-log
+          path: android-sdkdemo/build/ci-gradle.log
+          if-no-files-found: warn
 
       - name: Prepare Android plugin artifact
         run: |
