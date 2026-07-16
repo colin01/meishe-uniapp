@@ -49,7 +49,11 @@ android {
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    // Android library AARs cannot embed direct local AAR dependencies. They are
+    // packaged beside libBase in the uni-app plugin artifact, so use them only
+    // for this module's compilation and keep Java SDK JARs as API dependencies.
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    compileOnly fileTree(dir: 'libs', include: ['*.aar'])
 
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
