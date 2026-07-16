@@ -9,12 +9,14 @@ Android and iOS uni-app native plugin for the Meishe SDKDemo workflow. The modul
   `mode: 'publish'` and `maxTime` (seconds): one video is selected, validated, copied to a
   readable local path, and returned without exporting a new video.
 - `editor(options, callback)`: Compatibility entry that starts the video editing flow. Plugin
-  sessions always expose `发布`, export a 720p video, and return `outputFilePath` through the
+  calls must include `maxTime` (seconds); sessions always expose `发布`, export a 720p video,
+  and return `outputFilePath` through the
   same callback so the uni-app caller can open its video publish page directly.
 - `shooting(options, callback)`: Returns `{ errorCode: 'unsupported' }` because
   this SDKDemo integration has no standalone capture implementation.
 
-`maxTime` is required for `start` and expressed in seconds. It is enforced for every plugin editing session.
+`maxTime` is required for both `start` and `editor` and expressed in seconds. `start` must also
+pass `mode: 'publish'`. It is enforced for every plugin editing session.
 When the
 selected source exceeds the limit, the plugin keeps the selection session open and asks whether
 to enter the editor: choosing `进入编辑` opens the existing 720p auto-ratio editing flow, while

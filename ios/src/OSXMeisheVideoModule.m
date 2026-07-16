@@ -63,11 +63,16 @@ UNI_EXPORT_METHOD(@selector(shooting:callback:))
         return;
     }
     BOOL isPublish = [[self stringValue:options[@"mode"]] caseInsensitiveCompare:@"publish"] == NSOrderedSame;
-    if (forcedMode.length == 0 && (!isPublish || options[@"maxTime"] == nil)) {
-        [self invoke:callback result:@{ @"errorCode": @"invalid_options", @"errorMessage": @"start 调用必须传入 mode: 'publish' 和 maxTime" }];
+    BOOL missingMaxTime = options[@"maxTime"] == nil;
+    if ((forcedMode.length == 0 && (!isPublish || missingMaxTime))
+            || (forcedMode.length > 0 && missingMaxTime)) {
+        [self invoke:callback result:@{ @"errorCode": @"invalid_options", @"errorMessage": @"调用必须传入 maxTime；start 调用还必须传入 mode: 'publish'" }];
         return;
     }
     if (![self beginSession:options callback:callback forcedMode:forcedMode]) {
+        return;
+    }
+    if (self.sessionFinished) {
         return;
     }
     if (![self verifyLicense]) {
