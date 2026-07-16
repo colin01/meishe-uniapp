@@ -1,0 +1,10 @@
+[
+    {
+        "名称":"拍摄预览画面基础效果 Shoot the preview screen base effect",
+        "fxName":"Lut Data File Path",
+        "value":1,
+        "defaultValue":1,
+        "packageUrl":"",
+        "degreeName":"Lut Intensity"
+    }
+]

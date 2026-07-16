@@ -1,0 +1,110 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.android.extCompileSdkVersion
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion rootProject.android.extTargetSdkVersion
+        versionCode rootProject.config.extVersionCode
+        versionName rootProject.config.extVersionName
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        consumerProguardFiles 'consumer-rules.pro'
+        vectorDrawables.useSupportLibrary = true
+
+        buildConfigField 'String', 'HUMAN_AI_TYPE', '\"MS\"'
+        buildConfigField 'int', 'FACE_MODEL', '240'
+        buildConfigField 'Boolean', 'PRINT_LOG', 'true'
+
+        ndk {
+            if (armConfig == 1) {
+                abiFilters 'armeabi-v7a', 'arm64-v8a'
+            } else if (armConfig == 2) {
+                abiFilters 'arm64-v8a'
+            } else if (armConfig == 3) {
+                abiFilters 'armeabi-v7a'
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    buildTypes {
+        debug {
+            matchingFallbacks = ['debug', 'qa', 'release']
+            minifyEnabled false
+        }
+        release {
+            matchingFallbacks = ['release', 'debug', 'qa']
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs './libs'
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+}
+
+dependencies {
+    compileOnly project(':dcloud-stubs')
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation rootProject.ext.dependencies.extAndroidXDesign
+    implementation rootProject.ext.dependencies.extAppcompat
+    implementation rootProject.ext.dependencies.extAppcompatRecycler
+    implementation rootProject.ext.dependencies.extConstraintLayout
+    implementation rootProject.ext.dependencies.extOkHttp
+    implementation rootProject.ext.dependencies.extGoogleGson
+    implementation rootProject.ext.dependencies.extBumptechGlide
+    annotationProcessor rootProject.ext.dependencies.extGlideAnnotation
+
+    implementation rootProject.ext.dependencies.extFresco
+    implementation rootProject.ext.dependencies.extSoloader
+    implementation rootProject.ext.dependencies.extFrescoGif
+    implementation rootProject.ext.dependencies.extFrescoWebp
+    implementation rootProject.ext.dependencies.extFrescoWebpSupport
+    testImplementation rootProject.ext.testDependencies.extTestJunit
+    implementation rootProject.ext.dependencies.extAndroidMultidex
+    implementation rootProject.ext.dependencies.extkotlinStdlibJdk7
+    implementation rootProject.ext.dependencies.extkotlinReflect
+
+    annotationProcessor rootProject.ext.dependencies.extLifecycleCompiler
+    implementation rootProject.ext.dependencies.extLifecycleKtx
+    implementation rootProject.ext.dependencies.extLifecycleExtensions
+    implementation rootProject.ext.dependencies.extDagger
+    kapt rootProject.ext.dependencies.extDaggerCompiler
+    implementation rootProject.ext.dependencies.extDaggerAndroid
+    kapt rootProject.ext.dependencies.extDaggerAndroidProcessor
+    implementation rootProject.ext.dependencies.extRxandroid
+    implementation rootProject.ext.dependencies.extRxjava
+
+    implementation project(path: ':libBase')
+    implementation project(path: ':libNet')
+    implementation project(path: ':MArScene')
+    implementation project(path: ':MCutSame')
+    implementation project(path: ':MMakeup')
+}

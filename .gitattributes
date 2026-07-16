@@ -1,0 +1,5 @@
+# Preserve upstream SDK headers verbatim; their historical whitespace is not project source.
+Vendor/** -whitespace
+ios/Frameworks/** -whitespace
+ios/BundleResources/** -whitespace
+android-sdkdemo/** -whitespace

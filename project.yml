@@ -1,0 +1,56 @@
+name: OSXMeisheVideo
+options:
+  bundleIdPrefix: com.osx
+  deploymentTarget:
+    iOS: "12.0"
+settings:
+  base:
+    CODE_SIGNING_ALLOWED: NO
+    DEVELOPMENT_TEAM: ""
+targets:
+  OSXMeisheVideo:
+    type: library.static
+    platform: iOS
+    sources:
+      - path: ios/src
+      - path: Vendor/DCloudSDK
+    settings:
+      base:
+        PRODUCT_NAME: OSXMeisheVideo
+        MACH_O_TYPE: staticlib
+        DEFINES_MODULE: YES
+        CLANG_ENABLE_MODULES: YES
+        CLANG_ENABLE_OBJC_ARC: YES
+        IPHONEOS_DEPLOYMENT_TARGET: "12.0"
+        ARCHS: arm64
+        VALID_ARCHS: arm64
+        ONLY_ACTIVE_ARCH: NO
+        GCC_SYMBOLS_PRIVATE_EXTERN: NO
+        DEPLOYMENT_POSTPROCESSING: NO
+        STRIP_INSTALLED_PRODUCT: NO
+        STRIP_STYLE: debugging
+        COPY_PHASE_STRIP: NO
+        DEAD_CODE_STRIPPING: NO
+        HEADER_SEARCH_PATHS:
+          - "$(SRCROOT)/Vendor/DCloudSDK/DCUni"
+          - "$(SRCROOT)/Vendor/DCloudSDK/weexHeader"
+    dependencies:
+      - framework: ios/Frameworks/NvShortVideoCore.xcframework
+      - framework: ios/Frameworks/NvStreamingSdkCore.xcframework
+      - framework: ios/Frameworks/NvMSAICutter.xcframework
+      - sdk: Foundation.framework
+      - sdk: UIKit.framework
+      - sdk: Photos.framework
+      - sdk: AVFoundation.framework
+      - sdk: CoreMedia.framework
+      - sdk: CoreGraphics.framework
+      - sdk: MobileCoreServices.framework
+      - sdk: VideoToolbox.framework
+      - sdk: CoreVideo.framework
+      - sdk: Security.framework
+      - sdk: SystemConfiguration.framework
+schemes:
+  OSXMeisheVideo:
+    build:
+      targets:
+        OSXMeisheVideo: all

@@ -1,0 +1,154 @@
+name: build-native-plugin
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 8
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "8"
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Install Android platform
+        run: sdkmanager "platforms;android-33" "build-tools;33.0.3"
+
+      - name: Build Android AARs
+        working-directory: android-sdkdemo
+        run: |
+          set -eo pipefail
+          printf 'sdk.dir=%s\n' "$ANDROID_HOME" > local.properties
+          chmod +x gradlew
+          ./gradlew \
+            :app:assembleRelease \
+            :libBase:assembleRelease \
+            :libEngine:assembleRelease \
+            :libNet:assembleRelease \
+            :MArScene:assembleRelease \
+            :MCutSame:assembleRelease \
+            :MMakeup:assembleRelease
+
+      - name: Prepare Android plugin artifact
+        run: |
+          set -eo pipefail
+          rm -rf _artifacts/android
+          mkdir -p _artifacts/android/assets
+          cp android-sdkdemo/app/build/outputs/aar/app-release.aar _artifacts/android/OSXMeisheVideo.aar
+          cp android-sdkdemo/libBase/build/outputs/aar/libBase-release.aar _artifacts/android/
+          cp android-sdkdemo/libEngine/build/outputs/aar/libEngine-release.aar _artifacts/android/
+          cp android-sdkdemo/libNet/build/outputs/aar/libNet-release.aar _artifacts/android/
+          cp android-sdkdemo/MArScene/build/outputs/aar/MArScene-release.aar _artifacts/android/
+          cp android-sdkdemo/MCutSame/build/outputs/aar/MCutSame-release.aar _artifacts/android/
+          cp android-sdkdemo/MMakeup/build/outputs/aar/MMakeup-release.aar _artifacts/android/
+          cp android-sdkdemo/libBase/libs/*.aar _artifacts/android/
+          cp android-sdkdemo/app/src/main/assets/meishesdk.lic _artifacts/android/assets/
+          find _artifacts/android -type f -print
+
+      - name: Upload Android artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: osx-meishe-video-android
+          path: _artifacts/android
+
+  ios:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen generate
+
+      - name: Build iOS static library (device arm64)
+        run: |
+          set -eo pipefail
+          rm -rf build
+          mkdir -p build
+          xcodebuild build \
+            -project OSXMeisheVideo.xcodeproj \
+            -scheme OSXMeisheVideo \
+            -configuration Release \
+            -sdk iphoneos \
+            -arch arm64 \
+            ONLY_ACTIVE_ARCH=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            SKIP_INSTALL=NO \
+            DEPLOYMENT_POSTPROCESSING=NO \
+            STRIP_INSTALLED_PRODUCT=NO \
+            GCC_SYMBOLS_PRIVATE_EXTERN=NO \
+            DEAD_CODE_STRIPPING=NO \
+            CONFIGURATION_BUILD_DIR="$PWD/build/device" \
+            BUILT_PRODUCTS_DIR="$PWD/build/device"
+
+      - name: Verify iOS static library
+        run: |
+          set -eo pipefail
+          artifact="build/device/libOSXMeisheVideo.a"
+          test -f "$artifact"
+          lipo -info "$artifact" | grep -q arm64
+          nm -gU "$artifact" | grep -E "OSXMeisheVideoModule|wx_export_method" >/dev/null
+
+      - name: Upload iOS static library
+        uses: actions/upload-artifact@v4
+        with:
+          name: osx-meishe-video-ios
+          path: build/device/libOSXMeisheVideo.a
+
+  package:
+    runs-on: ubuntu-latest
+    needs:
+      - android
+      - ios
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download Android artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: osx-meishe-video-android
+          path: plugin/OSX-MeisheVideo/android
+
+      - name: Download iOS static library
+        uses: actions/download-artifact@v4
+        with:
+          name: osx-meishe-video-ios
+          path: plugin/OSX-MeisheVideo/ios
+
+      - name: Prepare iOS runtime frameworks and resources
+        run: |
+          set -eo pipefail
+          mkdir -p plugin/OSX-MeisheVideo/ios/Frameworks
+          cp -R ios/Frameworks/NvShortVideoCore.xcframework/ios-arm64/NvShortVideoCore.framework plugin/OSX-MeisheVideo/ios/Frameworks/
+          cp -R ios/Frameworks/NvStreamingSdkCore.xcframework/ios-arm64/NvStreamingSdkCore.framework plugin/OSX-MeisheVideo/ios/Frameworks/
+          cp -R ios/Frameworks/NvMSAICutter.xcframework/ios-arm64/NvMSAICutter.framework plugin/OSX-MeisheVideo/ios/Frameworks/
+          cp -R ios/BundleResources plugin/OSX-MeisheVideo/ios/BundleResources
+
+      - name: Assemble uni-app native plugin
+        run: |
+          set -eo pipefail
+          rm -f plugin/OSX-MeisheVideo.zip
+          cd plugin
+          zip -r OSX-MeisheVideo.zip OSX-MeisheVideo
+
+      - name: Upload final plugin archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: OSX-MeisheVideo-uniapp-nativeplugin
+          path: plugin/OSX-MeisheVideo.zip

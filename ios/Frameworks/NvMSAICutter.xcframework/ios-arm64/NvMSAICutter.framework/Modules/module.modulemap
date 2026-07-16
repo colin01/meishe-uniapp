@@ -1,0 +1,5 @@
+framework module NvMSAICutter {
+    umbrella header "NvMSAICutter.h"
+    export *
+    module * { export * }
+}

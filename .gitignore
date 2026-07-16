@@ -1,0 +1,18 @@
+# Local Android SDK configuration
+android-sdkdemo/local.properties
+
+# Gradle and Android build outputs
+.gradle/
+android-sdkdemo/.gradle/
+android-sdkdemo/**/build/
+
+# XcodeGen and Xcode build outputs
+OSXMeisheVideo.xcodeproj/
+build/
+DerivedData/
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+.idea/
+*.iml

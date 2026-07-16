@@ -1,0 +1,2487 @@
+{
+    "events": [
+        {
+            "eventName": "event_special_weather",
+            "displayName": "特殊天气",
+            "displayNameEn": "special_weather",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "skyTypeL1",
+                    "value": [ 1, 4 ],
+                    "score": 0.4
+                },
+                {
+                    "type": "skyColorL1",
+                    "value": [ 0, 4, 5 ],
+                    "score": 0.2
+                },
+                {
+                    "type": "skyRatio",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.3,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.3,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [1],
+                    "score": 0.2
+                },
+                {
+                    "type": "skyFireCloud",
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "skyAirplaneCloud",
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_fire_cloud",
+            "displayName": "日出/日落",
+            "displayNameEn": "fire_cloud",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "skyTimeType",
+                    "value": [ 1, 2, 3, 12, 13, 14],
+                    "score": 0.6
+                },
+                {
+                    "type": "skyRatio",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.3,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.3,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [1],
+                    "score": 0.2
+                },
+                {
+                    "type": "skyFireCloud",
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_sky_rainbow",
+            "displayName": "彩虹",
+            "displayNameEn": "sky_rainbow",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "skyRainbow",
+                    "value": [ 1 ],
+                    "score": 0.6
+                },
+                {
+                    "type": "skyRatio",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.3,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.3,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [1],
+                    "score": 0.2
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 13],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_airplane_cloud",
+            "displayName": "飞机云",
+            "displayNameEn": "airplane_cloud",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "skyAirplaneCloud",
+                    "value": [ 1 ],
+                    "score": 0.6
+                },
+                {
+                    "type": "skyRatio",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.3,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.3,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [1],
+                    "score": 0.2
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 13],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_blue_sky",
+            "displayName": "优质蓝天",
+            "displayNameEn": "blue_sky",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10],
+                    "score": 0.5
+                },
+                {
+                    "type": "skyRatio",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [1],
+                    "score": 0.2
+                },
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                },
+                {
+                    "type": "sum",
+                    "sumTags": ["imageBlue", "imageCyan"],
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.7,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_clouded_over",
+            "displayName": "特殊云彩",
+            "displayNameEn": "clouded_over",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "skyTypeL1",
+                    "value": [ 4 ],
+                    "score": 0.5
+                },
+                {
+                    "type": "skyRatio",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [1],
+                    "score": 0.2
+                },
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                },
+                {
+                    "type": "skyFireCloud",
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.7,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_travel_scenery",
+            "displayName": "旅行（风光）",
+            "displayNameEn": "travel_scenery",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [ 37, 39, 42, 44, 45, 46, 47, 48, 50 ],
+                    "score": 0.6
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 13],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.05
+                },
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_travel_culture",
+            "displayName": "旅行（人文）",
+            "displayNameEn": "travel_culture",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [ 7, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
+                    24, 34, 54, 57],
+                    "score": 0.6
+                },
+                {
+                    "type": "activity",
+                    "value": [26],
+                    "score": 0.2
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 13],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.05
+                },
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_travel_journey",
+            "displayName": "旅行途中",
+            "displayNameEn": "travel_journey",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [ 4, 5, 6, 31, 57],
+                    "score": 0.6
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 13],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.05
+                },
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_cbd",
+            "displayName": "城市CBD",
+            "displayNameEn": "cbd",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL3",
+                    "value": [ 165, 206, 234, 309, 310, 351],
+                    "score": 0.6
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 13],
+                    "score": 0.1
+                },
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_unique_accommodation",
+            "displayName": "特色住宿体验",
+            "displayNameEn": "accommodation",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [6],
+                    "score": 0.6
+                },
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.2,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.2,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 13],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.05
+                }
+            ],
+            "scoreMin": 0.7,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_quality_night_view",
+            "displayName": "优质夜景",
+            "displayNameEn": "quality_night_view",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [54],
+                    "score": 0.6
+                },
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.2,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.2,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_summer_boulevard",
+            "displayName": "绿色林荫",
+            "displayNameEn": "summer_boulevard",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL3",
+                    "value": [447, 26],
+                    "score": 0.6
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 3, 12],
+                    "score": 0.2
+                },
+                {
+                    "type": "imageGreen",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_autumn_boulevard",
+            "displayName": "金色林荫",
+            "displayNameEn": "autumn_boulevard",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL3",
+                    "value": [447, 291],
+                    "score": 0.6
+                },
+                {
+                    "type": "sum",
+                    "sumTags": ["imageRed", "imageYellow"],
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 3, 12],
+                    "score": 0.2
+                }
+            ],
+            "scoreMin": 0.7,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_flower",
+            "displayName": "花海",
+            "displayNameEn": "flower",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL3",
+                    "value": [432, 433, 434, 435, 436, 437, 295],
+                    "score": 0.7
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.05
+                },
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.05
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 3, 12, 13],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.7,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_desert_scene",
+            "displayName": "沙漠风光",
+            "displayNameEn": "desert_scene",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [45],
+                    "score": 0.6
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 3, 12, 13],
+                    "score": 0.2
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_grassland_scene",
+            "displayName": "草原美景",
+            "displayNameEn": "grassland_scene",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [46, 47],
+                    "score": 0.6
+                },
+                {
+                    "type": "imageGreen",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 3, 12, 13],
+                    "score": 0.2
+                }
+            ],
+            "scoreMin": 0.7,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_mountain_scene",
+            "displayName": "山野风光",
+            "displayNameEn": "mountain_scene",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL1",
+                    "value": [17],
+                    "score": 0.6
+                },
+                {
+                    "type": "imageGreen",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10],
+                    "score": 0.15
+                }
+            ],
+            "scoreMin": 0.7,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_nice_snow",
+            "displayName": "优质雪景",
+            "displayNameEn": "nice_snow",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [37],
+                    "score": 0.6
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10],
+                    "score": 0.1
+                },
+                {
+                    "type": "imageBlue",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.4,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.4,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_beach_scene",
+            "displayName": "海洋风光",
+            "displayNameEn": "beach_scene",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [48, 50],
+                    "score": 0.6
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 13],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_delicacies",
+            "displayName": "美食特写",
+            "displayNameEn": "delicacies",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [30],
+                    "score": 0.6
+                },
+                {
+                    "type": "object",
+                    "value": [54, 55, 56],
+                    "score": 0.2
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_performance",
+            "displayName": "演出",
+            "displayNameEn": "performance",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "activity",
+                    "value": [12, 15, 16],
+                    "score": 0.6
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_snowy_day",
+            "displayName": "下雪天",
+            "displayNameEn": "snowy_day",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL3",
+                    "value": [208, 425],
+                    "score": 0.2
+                },
+                {
+                    "type": "skyRainSnow",
+                    "value": [ 2 ],
+                    "score": 0.6
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_shop_exploration",
+            "displayName": "探店",
+            "displayNameEn": "shop_exploration",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL1",
+                    "value": [12],
+                    "score": 0.5
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_city_streets",
+            "displayName": "城市街道",
+            "displayNameEn": "city_streets",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL3",
+                    "value": [278, 413, 414, 2, 106],
+                    "score": 0.6
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_exhibition_hall",
+            "displayName": "展览馆",
+            "displayNameEn": "exhibition_hall",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [7],
+                    "score": 0.5
+                },
+                {
+                    "type": "activity",
+                    "value": [26],
+                    "score": 0.5
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_zoo",
+            "displayName": "动物园",
+            "displayNameEn": "zoo",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [68],
+                    "score": 0.6
+                },
+                {
+                    "type": "object",
+                    "value": [14, 15, 16, 17, 18, 19, 20,
+                        21, 22, 23, 80, 81, 82, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93],
+                    "score": 0.4
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_loud_party",
+            "displayName": "喧闹派对",
+            "displayNameEn": "loud_party",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [9],
+                    "score": 0.6
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_cozy_party",
+            "displayName": "温馨派对",
+            "displayNameEn": "cozy_party",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL3",
+                    "value": [180, 417, 89],
+                    "score": 0.5
+                },
+                {
+                    "type": "activity",
+                    "value": [9, 23],
+                    "score": 0.5
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 3,
+                            "value": 0
+                        },
+                        {
+                            "minX": 3,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                }
+            ],
+            "scoreMin": 0.7,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_dinner_gathering",
+            "displayName": "聚餐",
+            "displayNameEn": "dinner_gathering",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL3",
+                    "value": [180, 254, 89, 144, 196, 49, 276, 88],
+                    "score": 0.6
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 3,
+                            "value": 0
+                        },
+                        {
+                            "minX": 3,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_birthday",
+            "displayName": "生日",
+            "displayNameEn": "birthday",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "activity",
+                    "value": [9],
+                    "score": 0.7
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.7,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_parent_child",
+            "displayName": "萌娃",
+            "displayNameEn": "parent_child",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "activity",
+                    "value": [2],
+                    "score": 0.1
+                },
+                {
+                    "type": "carSceneL2",
+                    "value": [11],
+                    "score": 0.2
+                },
+                {
+                    "type": "faceAge",
+                    "strValue": ["0 1 1000", "1 1 1000"],
+                    "score": 0.5
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                }
+            ],
+            "excludeTags" : [
+                {
+                    "type": "childCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 0 ]
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_parent_child_time",
+            "displayName": "亲子时刻/儿童节",
+            "displayNameEn": "parent_child_time",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "activity",
+                    "value": [2],
+                    "score": 0.4
+                },
+                {
+                    "type": "carSceneL2",
+                    "value": [11],
+                    "score": 0.4
+                },
+                {
+                    "type": "faceAge",
+                    "strValue": ["0 1 1000", "1 1 1000"],
+                    "score": 0.2
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                }
+            ],
+            "excludeTags" : [
+                {
+                    "type": "childCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 0 ]
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_pets",
+            "displayName": "宠物",
+            "displayNameEn": "pets",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "object",
+                    "value": [14, 15, 16, 82, 84, 91, 90, 93],
+                    "score": 0.6
+                },
+                {
+                    "type": "activity",
+                    "value": [7],
+                    "score": 0.6
+                },
+                {
+                    "type": "carSceneL2",
+                    "value": [28],
+                    "score": 0.1
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_outdoor",
+            "displayName": "户外",
+            "displayNameEn": "outdoor",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "activity",
+                    "value": [30, 31, 35],
+                    "score": 0.6
+                },
+                {
+                    "type": "carSceneL1",
+                    "value": [15, 17],
+                    "score": 0.2
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_outing",
+            "displayName": "郊游",
+            "displayNameEn": "outing",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "activity",
+                    "value": [23],
+                    "score": 0.2
+                },
+                {
+                    "type": "carSceneL2",
+                    "value": [38, 39, 40, 41],
+                    "score": 0.6
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 3, 12, 13],
+                    "score": 0.2
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_water_activities",
+            "displayName": "水上活动",
+            "displayNameEn": "water_activities",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL3",
+                    "value": [188, 420, 421],
+                    "score": 0.6
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [ 9, 10, 13],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                }
+            ],
+            "scoreMin": 0.7,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_sports",
+            "displayName": "运动",
+            "displayNameEn": "sports",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL1",
+                    "value": [0],
+                    "score": 0.5
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_outdoor_sports",
+            "displayName": "户外运动",
+            "displayNameEn": "outdoor_sports",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [0],
+                    "score": 0.6
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_indoor_sports",
+            "displayName": "室内运动",
+            "displayNameEn": "indoor_sports",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL2",
+                    "value": [1],
+                    "score": 0.6
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_skiing",
+            "displayName": "滑雪运动",
+            "displayNameEn": "skiing",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "activity",
+                    "value": [42],
+                    "score": 0.6
+                },
+                {
+                    "type": "object",
+                    "value": [30,31],
+                    "score": 0.1
+                },
+                {
+                    "type": "carSceneL3",
+                    "value": [204],
+                    "score": 0.2
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_football",
+            "displayName": "足球",
+            "displayNameEn": "football",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "activity",
+                    "value": [11],
+                    "score": 0.6
+                },
+                {
+                    "type": "carSceneL3",
+                    "value": [209, 213],
+                    "score": 0.1
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [9, 10, 13],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_basketball",
+            "displayName": "篮球",
+            "displayNameEn": "basketball",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "activity",
+                    "value": [21],
+                    "score": 0.6
+                },
+                {
+                    "type": "carSceneL3",
+                    "value": [30],
+                    "score": 0.1
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [9, 10, 13],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_wedding",
+            "displayName": "婚礼",
+            "displayNameEn": "wedding",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "activity",
+                    "value": [17],
+                    "score": 0.6
+                },
+                {
+                    "type": "carSceneL2",
+                    "value": [147, 27, 20, 60, 61],
+                    "score": 0.2
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_couple",
+            "displayName": "情侣日常",
+            "displayNameEn": "couple",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 2,
+                            "value": 0
+                        },
+                        {
+                            "minX": 2,
+                            "maxX": 3,
+                            "value": 1
+                        },
+                        {
+                            "minX": 3,
+                            "maxX": 1000,
+                            "value": 2
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                },
+                {
+                    "type": "femaleCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 2,
+                            "value": 1
+                        },
+                        {
+                            "minX": 2,
+                            "maxX": 1000,
+                            "value": 2
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.3
+                },
+                {
+                    "type": "maleCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 2,
+                            "value": 1
+                        },
+                        {
+                            "minX": 2,
+                            "maxX": 1000,
+                            "value": 2
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.3
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                }
+            ],
+            "scoreMin": 0.8,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_single",
+            "displayName": "单人",
+            "displayNameEn": "single",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 2,
+                            "value": 1
+                        },
+                        {
+                            "minX": 2,
+                            "maxX": 1000,
+                            "value": 2
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.6
+                },
+                {
+                    "type": "faceAge",
+                    "strValue": ["2 1 1000", "3 1 1000","4 1 1000", "5 1 1000",
+                        "6 1 1000", "7 1 1000","8 1 1000"],
+                    "score": 0.2
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                }
+            ],
+            "scoreMin": 0.8,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_fireworks",
+            "displayName": "烟花",
+            "displayNameEn": "fireworks",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "carSceneL3",
+                    "value": [339],
+                    "score": 0.6
+                },
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.45,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.45,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [
+                        1
+                    ],
+                    "score": 0.2
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_christmas",
+            "displayName": "圣诞节",
+            "displayNameEn": "christmas",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "activity",
+                    "value": [41],
+                    "score": 0.7
+                },
+                {
+                    "type": "carSceneL2",
+                    "value": [6, 9, 67, 28],
+                    "score": 0.2
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.7,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_halloween",
+            "displayName": "万圣节",
+            "displayNameEn": "halloween",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "activity",
+                    "value": [37],
+                    "score": 0.7
+                },
+                {
+                    "type": "carSceneL2",
+                    "value": [9, 67, 54, 27, 28],
+                    "score": 0.2
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.7,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_spring_festival",
+            "displayName": "春节",
+            "displayNameEn": "spring_festival",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "activity",
+                    "value": [38],
+                    "score": 0.7
+                },
+                {
+                    "type": "imageRed",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.35,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.35,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "faceCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                },
+                {
+                    "type": "smileCount",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 1,
+                            "value": 0
+                        },
+                        {
+                            "minX": 1,
+                            "maxX": 1000,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.7,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_universal",
+            "displayName": "通用",
+            "displayNameEn": "universal",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.002,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.002,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                }
+            ],
+            "scoreMin": 0.2,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_spring",
+            "displayName": "通用",
+            "displayNameEn": "spring",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.01,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.01,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                },
+                {
+                    "type": "date",
+                    "strValue":["03/01 05/30"],
+                    "score": 0.4
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [9, 10, 13],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_summer",
+            "displayName": "通用",
+            "displayNameEn": "summer",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.01,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.01,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                },
+                {
+                    "type": "date",
+                    "strValue":["06/01 08/30"],
+                    "score": 0.4
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [9, 10, 13],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_autumn",
+            "displayName": "通用",
+            "displayNameEn": "autumn",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.01,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.01,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                },
+                {
+                    "type": "date",
+                    "strValue":["09/01 11/30"],
+                    "score": 0.4
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [9, 10, 13],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        },
+        {
+            "eventName": "event_winter",
+            "displayName": "通用",
+            "displayNameEn": "winter",
+            "eventType":0,
+            "tags": [
+                {
+                    "type": "aesthetic",
+                    "map": [
+                        {
+                            "minX": 0,
+                            "maxX": 0.01,
+                            "value": 0
+                        },
+                        {
+                            "minX": 0.01,
+                            "maxX": 1,
+                            "value": 1
+                        }
+                    ],
+                    "value": [ 1 ],
+                    "score": 0.2
+                },
+                {
+                    "type": "date",
+                    "strValue":["12/01 2/28"],
+                    "score": 0.4
+                },
+                {
+                    "type": "skyTimeType",
+                    "value": [9, 10, 13],
+                    "score": 0.1
+                }
+            ],
+            "scoreMin": 0.6,
+            "displayColor": "orange"
+        }
+    ]
+}

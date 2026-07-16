@@ -1,0 +1,44 @@
+[
+    {
+        "名称":"校色 Tone",
+        "markers":"Tone",
+        "LocalStringKey":"capture_beauty_tone",
+        "coverImage":"beauty_tone",
+        "selectedCoverImg":"",
+        "fxName":"ColorCorrect",
+        "value":0,
+        "defaultValue":0,
+        "minValue":0,
+        "maxValue":1,
+        "packageUrl":"65521195-92A4-41CA-9DB5-6AB19C9321B5.1.videofx",
+        "degreeName":""
+    },
+    {
+        "名称":"锐度 Firm",
+        "markers":"Firm",
+        "LocalStringKey":"capture_beauty_firm",
+        "coverImage":"beauty_firm",
+        "selectedCoverImg":"",
+        "fxName":"Sharpen",
+        "value":0.8,
+        "defaultValue":0.8,
+        "minValue":0,
+        "maxValue":1,
+        "packageUrl":"",
+        "degreeName":"Amount"
+    },
+    {
+        "名称":"清晰度 Articulation",
+        "markers":"Articulation",
+        "LocalStringKey":"capture_beauty_articulation",
+        "coverImage":"beauty_Articulation",
+        "selectedCoverImg":"",
+        "fxName":"Definition",
+        "value":0.1,
+        "defaultValue":0.1,
+        "minValue":0,
+        "maxValue":1,
+        "packageUrl":"",
+        "degreeName":"Intensity"
+    }
+]

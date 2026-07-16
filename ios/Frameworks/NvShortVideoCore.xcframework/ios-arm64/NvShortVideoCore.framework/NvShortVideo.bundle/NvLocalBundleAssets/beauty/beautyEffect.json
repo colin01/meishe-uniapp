@@ -1,0 +1,196 @@
+[
+    {
+        "名称":"磨皮 Smooth",
+        "markers":"Smooth_Super",
+        "LocalStringKey":"capture_beauty_smooth",
+        "coverImage":"beauty_smooth",
+        "selectedCoverImg":"",
+        "fxName":"strength_superclass"
+    },
+    {
+        "名称":"磨皮 Smooth",
+        "markers":"Smooth_Back",
+        "LocalStringKey":"capture_beauty_back",
+        "coverImage":"beauty_back",
+        "selectedCoverImg":"",
+        "isHidden":1,
+        "fxName":"strength_back"
+    },
+    {
+        "名称":"标准磨皮 Standard",
+        "markers":"Standard",
+        "LocalStringKey":"capture_beauty_standard",
+        "coverImage":"beauty_smooth_child",
+        "selectedCoverImg":"",
+        "isHidden":1,
+        "fxName":"strength_subclass_1",
+        "value":0,
+        "defaultValue":0
+    },
+    {
+        "名称":"水光磨皮 Shiny",
+        "markers":"Shiny",
+        "LocalStringKey":"capture_beauty_shiny",
+        "coverImage":"beauty_smooth_child",
+        "selectedCoverImg":"",
+        "isHidden":1,
+        "fxName":"strength_subclass_2",
+        "value":0,
+        "defaultValue":0
+    },
+    {
+        "名称":"自然磨皮 Natural",
+        "markers":"Natural",
+        "LocalStringKey":"capture_beauty_natural",
+        "coverImage":"beauty_smooth_child",
+        "selectedCoverImg":"",
+        "isHidden":1,
+        "fxName":"strength_subclass_3",
+        "value":0,
+        "defaultValue":0
+    },
+    {
+        "名称":"质感磨皮 Luxurious",
+        "markers":"Luxurious",
+        "LocalStringKey":"capture_beauty_luxurious",
+        "coverImage":"beauty_smooth_child",
+        "selectedCoverImg":"",
+        "isHidden":1,
+        "fxName":"strength_subclass_4",
+        "value":0.6,
+        "defaultValue":0.6
+    },
+    {
+        "名称":"肤色 skincolor",
+        "markers":"Skincolor_Super",
+        "LocalStringKey":"capture_beauty_skincolor",
+        "coverImage":"beauty_whiten",
+        "selectedCoverImg":"",
+        "fxName":"skincolor_superclass"
+    },
+    {
+        "名称":"肤色 skincolor",
+        "markers":"Skincolor_Back",
+        "LocalStringKey":"capture_beauty_back",
+        "coverImage":"beauty_back",
+        "selectedCoverImg":"",
+        "isHidden":1,
+        "fxName":"skincolor_back"
+    },
+    {
+        "名称":"冷白 CoolWhite",
+        "markers":"CoolWhite",
+        "LocalStringKey":"capture_beauty_skincolor1",
+        "coverImage":"NvCaptureBeautyColdWhite",
+        "selectedCoverImg":"NvCaptureBeautyPinkwhite_s",
+        "isHidden":1,
+        "fxName":"skincolor_subclass_1",
+        "value":1,
+        "defaultValue":1,
+        "packageUrl":"5B35D8D4-3E55-41D5-A65E-37A846EC5692.2.videofx",
+        "degreeName":""
+    },
+    {
+        "名称":"粉白 PinkyWhite",
+        "markers":"PinkyWhite",
+        "LocalStringKey":"capture_beauty_skincolor2",
+        "coverImage":"NvCaptureBeautyPinkwhite",
+        "selectedCoverImg":"NvCaptureBeautyPinkwhite_s",
+        "isHidden":1,
+        "fxName":"skincolor_subclass_2",
+        "value":1,
+        "defaultValue":1,
+        "packageUrl":"B8FEAED8-4512-46F6-A791-1EDCB4211D6B.3.videofx",
+        "degreeName":""
+    },
+    {
+        "名称":"暖白 WarmWhite",
+        "markers":"WarmWhite",
+        "LocalStringKey":"capture_beauty_skincolor3",
+        "coverImage":"NvCaptureBeautyWarmWhite",
+        "selectedCoverImg":"NvCaptureBeautyPinkwhite_s",
+        "isHidden":1,
+        "fxName":"skincolor_subclass_3",
+        "value":1,
+        "defaultValue":1,
+        "packageUrl":"7D98116E-61D2-4101-AB64-3098DF88B2C5.2.videofx",
+        "degreeName":""
+    },
+    {
+        "名称":"美黑 Tanning",
+        "markers":"Tanning",
+        "LocalStringKey":"capture_beauty_skincolor4",
+        "coverImage":"NvCaptureBeautyBlack",
+        "selectedCoverImg":"NvCaptureBeautyPinkwhite_s",
+        "isHidden":1,
+        "fxName":"skincolor_subclass_4",
+        "value":1,
+        "defaultValue":1,
+        "packageUrl":"3C83CF18-FF4A-4541-9FA4-F715B2C2D79C.2.videofx",
+        "degreeName":""
+    },
+    {
+        "名称":"美白 Whiten",
+        "markers":"Whiten_Super",
+        "LocalStringKey":"capture_beauty_whiten",
+        "coverImage":"beauty_whiten",
+        "selectedCoverImg":"",
+        "fxName":"whitening_superclass"
+    },
+    {
+        "名称":"美白 Whiten",
+        "markers":"Whiten_Back",
+        "LocalStringKey":"capture_beauty_back",
+        "coverImage":"beauty_back",
+        "selectedCoverImg":"",
+        "isHidden":1,
+        "fxName":"whitening_back"
+    },
+    {
+        "名称":"美白A WhiteA",
+        "markers":"WhiteA",
+        "LocalStringKey":"capture_beauty_whitenA",
+        "coverImage":"beauty_whiten",
+        "selectedCoverImg":"",
+        "isHidden":1,
+        "fxName":"whitening_subclass_1",
+        "value":0.3,
+        "defaultValue":0.3
+    },
+    {
+        "名称":"美白B WhiteB",
+        "markers":"WhiteB",
+        "LocalStringKey":"capture_beauty_whitenB",
+        "coverImage":"beauty_whiten",
+        "selectedCoverImg":"",
+        "isHidden":1,
+        "fxName":"whitening_subclass_2",
+        "value":0.3,
+        "defaultValue":0.3,
+        "packageUrl":"zrmb.mslut",
+        "degreeName":""
+    },
+    {
+        "名称":"去油光 Oiliness",
+        "markers":"Oiliness",
+        "LocalStringKey":"capture_beauty_oiliness",
+        "coverImage":"beauty_oiliness",
+        "selectedCoverImg":"",
+        "fxName":"Shiny",
+        "value":0.8,
+        "defaultValue":0.8,
+        "radiusValue":0.44,
+        "defaultRadiusValue":0.44
+    },
+    {
+        "名称":"红润 Rosy",
+        "markers":"Rosy",
+        "LocalStringKey":"capture_beauty_rosy",
+        "coverImage":"beauty_rosy",
+        "selectedCoverImg":"",
+        "fxName":"Beauty Reddening",
+        "value":0,
+        "defaultValue":0
+    }
+]
+
