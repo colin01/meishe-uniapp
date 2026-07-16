@@ -2,10 +2,6 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-apply from: '../../../../ftp-download.gradle'
-apply from: '../ftp-util.gradle'
-
-def extraLibPath = getSdkExtraPath(rootDir.getAbsolutePath() + "/../../../meishesdk_libpath.conf")
 
 android {
     compileSdkVersion rootProject.android.extCompileSdkVersion
@@ -32,44 +28,6 @@ android {
         multiDexEnabled true
     }
 
-
-    task libCopy(type: Copy) {
-        copy {
-            from extraLibPath + 'lib/android_armv7'
-            into 'src/main/jniLibs/armeabi-v7a'
-            include '*.so'
-        }
-    }
-
-    task libCopy2(type: Copy) {
-        copy {
-            from extraLibPath + 'lib/android_arm64'
-            into 'src/main/jniLibs/arm64-v8a'
-            include '*.so'
-        }
-    }
-
-    task downloadFilesWindows() {
-        String oldAssetsVersion = readFileInfo(rootProject.ext.destAssetsFile + File.separator + "version.txt")
-        checkVersionAndDownloadFile(rootProject.ext.originFtpAssets, rootProject.ext.destAssetsFile, oldAssetsVersion, rootProject.ext.assetsTempFile)
-
-        String oldLibsVersion = readFileInfo(rootProject.ext.destLibsFile + File.separator + "version.txt")
-        checkVersionAndDownloadFile(rootProject.ext.originFtpLibs, rootProject.ext.destLibsFile, oldLibsVersion, rootProject.ext.libTempFile)
-
-        copyJniLibs(rootProject.ext.fromJniFile, rootProject.ext.toJniFile)
-
-    }
-    task downloadFiles() {
-        doFirst {
-            println 'web-ftp:sync start'
-            downloadFtpFiles(rootProject.ext.destAssetsFile, rootProject.ext.originFtpAssets,
-                    rootProject.ext.destLibsFile, rootProject.ext.originFtpLibs)
-            copyJniLibs(rootProject.ext.fromJniFile, rootProject.ext.toJniFile)
-            println 'web-ftp:sync end'
-        }
-    }
-
-
     packagingOptions {
         exclude 'lib/arm64-v8a/libst_mobile.so'
         exclude 'lib/armeabi-v7a/libst_mobile.so'
@@ -77,7 +35,7 @@ android {
 
     repositories {
         flatDir {
-            dirs './libs', '../../../../extrasdk', extraLibPath + 'extrasdk/sdk/android'
+            dirs './libs'
         }
     }
 
@@ -92,9 +50,6 @@ android {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-//    api fileTree(include: ['*.aar'], dir: extraLibPath + 'extrasdk/sdk/android')
-    api fileTree(include: ['*.jar', '*.aar'], dir: extraLibPath + 'extrasdk/sdk/android')
-    api fileTree(include: ['*.jar'], dir: extraLibPath + 'lib/android_jar')
 
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'

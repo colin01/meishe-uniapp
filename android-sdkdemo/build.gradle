@@ -1,16 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from: "config.gradle"
-ext {
-    libDirectoryPath = rootDir.getAbsolutePath() + File.separator
-    originFtpAssets = "/android/SDKdemo/" + rootProject.config.assetsVersion
-    destAssetsFile = libDirectoryPath + "app/src/main/assets"
-    assetsTempFile = libDirectoryPath + "app/temp"
-    originFtpLibs = "/android/SDKdemo/libs/" + rootProject.config.libVersion
-    destLibsFile = libDirectoryPath + "libBase/libs"
-    libTempFile = libDirectoryPath + "libBase/temp"
-    fromJniFile = destLibsFile + "/jniLibs"
-    toJniFile = "src/main/jniLibs"
-}
 
 buildscript {
     ext.kotlin_version = '1.5.30'
