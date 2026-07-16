@@ -81,6 +81,7 @@ import com.meishe.sdkdemo.utils.dataInfo.VideoFx;
 import com.meishe.utils.ToastUtil;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -300,7 +301,11 @@ public class VideoEditActivity extends BaseActivity {
             Log.w(TAG, "Unable to read compiled video duration", error);
             return null;
         } finally {
-            retriever.release();
+            try {
+                retriever.release();
+            } catch (IOException error) {
+                Log.w(TAG, "Unable to release compiled video duration retriever", error);
+            }
         }
     }
 
