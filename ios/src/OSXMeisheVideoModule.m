@@ -20,8 +20,9 @@
 @property (nonatomic, strong) UIImagePickerController *picker;
 @property (nonatomic, copy) NSString *reeditProjectId;
 @property (nonatomic, weak) UIViewController *reeditPresenter;
-@property (nonatomic, strong) NSKeyValueObservation *reeditPresentationObservation;
-@property (nonatomic, strong) NSKeyValueObservation *instanceStateObservation;
+@property (nonatomic, weak) DCUniSDKInstance *observedInstance;
+@property (nonatomic, assign) BOOL observingReeditPresentation;
+@property (nonatomic, assign) BOOL observingInstanceState;
 
 @end
 
@@ -30,6 +31,8 @@
 // Keep the module alive until its only terminal callback has been delivered.
 static OSXMeisheVideoModule *OSXMeisheActiveModule;
 static BOOL OSXMeisheLicenseVerified;
+static void *OSXMeisheReeditPresentationContext = &OSXMeisheReeditPresentationContext;
+static void *OSXMeisheInstanceStateContext = &OSXMeisheInstanceStateContext;
 
 UNI_EXPORT_METHOD(@selector(start:callback:))
 UNI_EXPORT_METHOD(@selector(editor:callback:))
@@ -274,27 +277,13 @@ UNI_EXPORT_METHOD(@selector(shooting:callback:))
 
 - (void)watchReeditDismissalFromPresenter:(UIViewController *)presenter
 {
-    self.reeditPresentationObservation = nil;
+    [self stopWatchingReeditDismissal];
     self.reeditPresenter = presenter;
-    __weak typeof(self) weakSelf = self;
-    self.reeditPresentationObservation = [presenter observeValueForKeyPath:@"presentedViewController"
-                                                                    options:NSKeyValueObservingOptionNew
-                                                              changeHandler:^(__unused id observedPresenter,
-                                                                              NSDictionary<NSKeyValueChangeKey,id> *change) {
-        UIViewController *presented = [change[NSKeyValueChangeNewKey] isKindOfClass:UIViewController.class]
-            ? change[NSKeyValueChangeNewKey]
-            : nil;
-        if (presented) return;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            OSXMeisheVideoModule *strongSelf = weakSelf;
-            if (!strongSelf || strongSelf.sessionFinished || strongSelf.exporting
-                || strongSelf.reeditProjectId.length == 0
-                || strongSelf.reeditPresenter.presentedViewController) {
-                return;
-            }
-            [strongSelf finishCancelled];
-        });
-    }];
+    [presenter addObserver:self
+                forKeyPath:@"presentedViewController"
+                   options:NSKeyValueObservingOptionNew
+                   context:OSXMeisheReeditPresentationContext];
+    self.observingReeditPresentation = YES;
 }
 
 - (void)presentEditorWithConfig:(NvVideoConfig *)config completion:(void (^)(BOOL finished))completion
@@ -309,26 +298,70 @@ UNI_EXPORT_METHOD(@selector(shooting:callback:))
 
 - (void)watchInstanceDestruction
 {
-    self.instanceStateObservation = nil;
+    [self stopWatchingInstanceDestruction];
     DCUniSDKInstance *instance = self.uniInstance;
     if (!instance) return;
     if (instance.uniState == DCUniInstanceDestroy) {
         [self finishCancelled];
         return;
     }
-    __weak typeof(self) weakSelf = self;
-    self.instanceStateObservation = [instance observeValueForKeyPath:@"uniState"
-                                                              options:NSKeyValueObservingOptionNew
-                                                        changeHandler:^(__unused DCUniSDKInstance *observedInstance,
-                                                                        NSDictionary<NSKeyValueChangeKey,id> *change) {
+    self.observedInstance = instance;
+    [instance addObserver:self
+                forKeyPath:@"uniState"
+                   options:NSKeyValueObservingOptionNew
+                   context:OSXMeisheInstanceStateContext];
+    self.observingInstanceState = YES;
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSKeyValueChangeKey,id> *)change
+                       context:(void *)context
+{
+    if (context == OSXMeisheReeditPresentationContext) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (self.sessionFinished || self.exporting || self.reeditProjectId.length == 0
+                || self.reeditPresenter.presentedViewController) {
+                return;
+            }
+            [self finishCancelled];
+        });
+        return;
+    }
+    if (context == OSXMeisheInstanceStateContext) {
         NSNumber *state = [change[NSKeyValueChangeNewKey] isKindOfClass:NSNumber.class]
             ? change[NSKeyValueChangeNewKey]
             : nil;
-        if (state.integerValue != DCUniInstanceDestroy) return;
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf finishCancelled];
-        });
-    }];
+        if (state.integerValue == DCUniInstanceDestroy) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self finishCancelled];
+            });
+        }
+        return;
+    }
+    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+}
+
+- (void)stopWatchingReeditDismissal
+{
+    if (self.observingReeditPresentation && self.reeditPresenter) {
+        [self.reeditPresenter removeObserver:self
+                                  forKeyPath:@"presentedViewController"
+                                     context:OSXMeisheReeditPresentationContext];
+    }
+    self.observingReeditPresentation = NO;
+    self.reeditPresenter = nil;
+}
+
+- (void)stopWatchingInstanceDestruction
+{
+    if (self.observingInstanceState && self.observedInstance) {
+        [self.observedInstance removeObserver:self
+                                   forKeyPath:@"uniState"
+                                      context:OSXMeisheInstanceStateContext];
+    }
+    self.observingInstanceState = NO;
+    self.observedInstance = nil;
 }
 
 - (void)publishWithProjectId:(NSString *)projectId
@@ -471,9 +504,8 @@ UNI_EXPORT_METHOD(@selector(shooting:callback:))
         self.picker = nil;
         self.moduleManager.delegate = nil;
         self.moduleManager.compileDelegate = nil;
-        self.reeditPresentationObservation = nil;
-        self.instanceStateObservation = nil;
-        self.reeditPresenter = nil;
+        [self stopWatchingReeditDismissal];
+        [self stopWatchingInstanceDestruction];
         if (self.reeditProjectId.length > 0) {
             [self.moduleManager exitVideoEdit:self.reeditProjectId];
             self.reeditProjectId = nil;
