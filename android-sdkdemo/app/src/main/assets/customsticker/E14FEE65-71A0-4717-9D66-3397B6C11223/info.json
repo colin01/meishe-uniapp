@@ -1,0 +1,20 @@
+{
+  "category": 20000,
+  "cover": "E14FEE65-71A0-4717-9D66-3397B6C11223.png",
+  "minSdkVersion": "1.0.0",
+  "name": "None",
+  "packageFileName": "E14FEE65-71A0-4717-9D66-3397B6C11223.5.animatedsticker",
+  "packageSize": 6012,
+  "ratioFlag": 1,
+  "supportedAspectRatio": "16v9",
+  "translation": [
+    {
+      "originalText": "None",
+      "targetLanguage": "zh_CN",
+      "targetText": "无效果"
+    }
+  ],
+  "type": 4,
+  "uuid": "E14FEE65-71A0-4717-9D66-3397B6C11223",
+  "version": 5
+}

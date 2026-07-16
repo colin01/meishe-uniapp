@@ -1,0 +1,21 @@
+{
+  "category": 4,
+  "cover": "F77B5F0E-AF43-45DB-96BB-62419B9CECA8.png",
+  "kind": 10,
+  "minSdkVersion": "2.18.0",
+  "name": "Expand Eyebrow Distance",
+  "packageFileName": "F77B5F0E-AF43-45DB-96BB-62419B9CECA8.2.facemesh",
+  "packageSize": 1229,
+  "ratioFlag": 1,
+  "supportedAspectRatio": "9v16",
+  "translation": [
+    {
+      "originalText": "Expand Eyebrow Distance",
+      "targetLanguage": "zh_CN",
+      "targetText": "眉距变宽"
+    }
+  ],
+  "type": 20,
+  "uuid": "F77B5F0E-AF43-45DB-96BB-62419B9CECA8",
+  "version": 2
+}

@@ -1,0 +1,20 @@
+{
+  "category": 1,
+  "kind": 1,
+  "minSdkVersion": "1.2.0",
+  "name": "",
+  "packageFileName": "A2F05F58-87AB-4D1D-9609-6C00EF09E4D1.capturescene",
+  "packageSize": 927,
+  "ratioFlag": 1,
+  "supportedAspectRatio": "9v16",
+  "translation": [
+    {
+      "originalText": "",
+      "targetLanguage": "zh_CN",
+      "targetText": ""
+    }
+  ],
+  "type": 10,
+  "uuid": "A2F05F58-87AB-4D1D-9609-6C00EF09E4D1",
+  "version": 1
+}

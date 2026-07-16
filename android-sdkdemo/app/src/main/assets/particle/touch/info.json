@@ -1,0 +1,16 @@
+﻿{
+  "fx": [
+    {
+      "name": "霓虹灯",
+      "rank": 12,
+      "package_id": "34B095C8-628A-4E9D-B36D-093F9774DAF7",
+      "aspect_ratio": 15
+    },
+    {
+      "name": "金色闪烁",
+      "rank": 14,
+      "package_id": "641C5CDE-BF3E-478D-A4C6-B5D5FA3AA9AD",
+      "aspect_ratio": 15
+    }
+  ]
+}

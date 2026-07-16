@@ -1,0 +1,10 @@
+#Description:BuildInId，name，backgroundColor
+Male Voice,Male,#648EAF
+Audio Reverb,Hall,#457480
+Audio Wahwah,Reverb,#5E90A8
+#Hall,#517998
+#Fast Cartoon Voice,Fast Cartoon,#517998
+Female Voice,Female,#6C929A
+Cartoon Voice,Cartoon,#5F697E
+Audio Echo,Echo,#507283
+Monster Voice,Monster,#5B788E

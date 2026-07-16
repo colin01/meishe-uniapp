@@ -1,0 +1,629 @@
+{
+  "list": [
+    {
+      "zh_name": "自定义",
+      "name": "design self",
+      "valueList": [
+        {
+          "key":"31",
+          "value": 0,
+          "effectKey": "1 Band Gain"
+        },
+        {
+          "key":"63",
+          "value": 0,
+          "effectKey": "4 Band Gain"
+        },
+        {
+          "key":"125",
+          "value": 0,
+          "effectKey": "7 Band Gain"
+
+        },
+        {
+          "key":"250",
+          "value": 0,
+          "effectKey": "10 Band Gain"
+
+        },
+        {
+          "key":"500",
+          "value": 0,
+          "effectKey": "13 Band Gain"
+        },
+        {
+          "key":"1k",
+          "value": 0,
+          "effectKey": "16 Band Gain"
+        },
+        {
+          "key":"2k",
+          "value": 0,
+          "effectKey": "19 Band Gain"
+
+        },
+        {
+          "key":"4k",
+          "value": 0,
+          "effectKey": "22 Band Gain"
+        },
+        {
+          "key":"8k",
+          "value": 0,
+          "effectKey": "25 Band Gain"
+
+        },
+        {
+          "key":"16k",
+          "value": 0,
+          "effectKey": "28 Band Gain"
+
+        }
+      ]
+    },
+    {
+      "zh_name": "流行",
+      "name": "pop",
+      "valueList": [
+        {
+          "key":"31",
+          "value": 4,
+          "effectKey": "1 Band Gain"
+        },
+        {
+          "key":"63",
+          "value": 2,
+          "effectKey": "4 Band Gain"
+        },
+        {
+          "key":"125",
+          "value": 0,
+          "effectKey": "7 Band Gain"
+        },
+        {
+          "key":"250",
+          "value": -3,
+          "effectKey": "10 Band Gain"
+        },
+        {
+          "key":"500",
+          "value": -6,
+          "effectKey": "13 Band Gain"
+        },
+        {
+          "key":"1k",
+          "value": -6,
+          "effectKey": "16 Band Gain"
+        },
+        {
+          "key":"2k",
+          "value": -3,
+          "effectKey": "19 Band Gain"
+        },
+        {
+          "key":"4k",
+          "value": 0,
+          "effectKey": "22 Band Gain"
+        },
+        {
+          "key":"8k",
+          "value": 1,
+          "effectKey": "25 Band Gain"
+        },
+        {
+          "key":"16k",
+          "value": 3,
+          "effectKey": "28 Band Gain"
+        }
+      ]
+    },
+    {
+      "zh_name": "舞曲",
+      "name": "dance",
+      "valueList": [
+        {
+          "key":"31",
+          "value": 7,
+          "effectKey": "1 Band Gain"
+        },
+        {
+          "key":"63",
+          "value": 6,
+          "effectKey": "4 Band Gain"
+        },
+        {
+          "key":"125",
+          "value": 3,
+          "effectKey": "7 Band Gain"
+        },
+        {
+          "key":"250",
+          "value": 0,
+          "effectKey": "10 Band Gain"
+        },
+        {
+          "key":"500",
+          "value": 0,
+          "effectKey": "13 Band Gain"
+        },
+        {
+          "key":"1k",
+          "value": -4,
+          "effectKey": "16 Band Gain"
+        },
+        {
+          "key":"2k",
+          "value": -6,
+          "effectKey": "19 Band Gain"
+        },
+        {
+          "key":"4k",
+          "value": -6,
+          "effectKey": "22 Band Gain"
+        },
+        {
+          "key":"8k",
+          "value": 0,
+          "effectKey": "25 Band Gain"
+        },
+        {
+          "key":"16k",
+          "value": 0,
+          "effectKey": "28 Band Gain"
+        }
+      ]
+    },
+    {
+      "zh_name": "蓝调",
+      "name": "blues",
+      "valueList": [
+        {
+          "key":"31",
+          "value": 3,
+          "effectKey": "1 Band Gain"
+        },
+        {
+          "key":"63",
+          "value": 6,
+          "effectKey": "4 Band Gain"
+        },
+        {
+          "key":"125",
+          "value": 8,
+          "effectKey": "7 Band Gain"
+        },
+        {
+          "key":"250",
+          "value": 3,
+          "effectKey": "10 Band Gain"
+        },
+        {
+          "key":"500",
+          "value": -2,
+          "effectKey": "13 Band Gain"
+        },
+        {
+          "key":"1k",
+          "value": 0,
+          "effectKey": "16 Band Gain"
+        },
+        {
+          "key":"2k",
+          "value": 4,
+          "effectKey": "19 Band Gain"
+        },
+        {
+          "key":"4k",
+          "value": 7,
+          "effectKey": "22 Band Gain"
+        },
+        {
+          "key":"8k",
+          "value": 9,
+          "effectKey": "25 Band Gain"
+        },
+        {
+          "key":"16k",
+          "value": 10,
+          "effectKey": "28 Band Gain"
+        }
+      ]
+    },
+    {
+      "zh_name": "古典",
+      "name": "classical",
+      "valueList": [
+        {
+          "key":"31",
+          "value": 0,
+          "effectKey": "1 Band Gain"
+        },
+        {
+          "key":"63",
+          "value": 0,
+          "effectKey": "4 Band Gain"
+        },
+        {
+          "key":"125",
+          "value": 0,
+          "effectKey": "7 Band Gain"
+        },
+        {
+          "key":"250",
+          "value": 0,
+          "effectKey": "10 Band Gain"
+        },
+        {
+          "key":"500",
+          "value": 0,
+          "effectKey": "13 Band Gain"
+        },
+        {
+          "key":"1k",
+          "value": 0,
+          "effectKey": "16 Band Gain"
+        },
+        {
+          "key":"2k",
+          "value": -6,
+          "effectKey": "19 Band Gain"
+        },
+        {
+          "key":"4k",
+          "value": -6,
+          "effectKey": "22 Band Gain"
+        },
+        {
+          "key":"8k",
+          "value": -6,
+          "effectKey": "25 Band Gain"
+        },
+        {
+          "key":"16k",
+          "value": -8,
+          "effectKey": "28 Band Gain"
+        }
+      ]
+    },
+    {
+      "zh_name": "爵士",
+      "name": "jazz",
+      "valueList": [
+        {
+          "key":"31",
+          "value": 0,
+          "effectKey": "1 Band Gain"
+        },
+        {
+          "key":"63",
+          "value": 0,
+          "effectKey": "4 Band Gain"
+        },
+        {
+          "key":"125",
+          "value": 1,
+          "effectKey": "7 Band Gain"
+        },
+        {
+          "key":"250",
+          "value": 4,
+          "effectKey": "10 Band Gain"
+        },
+        {
+          "key":"500",
+          "value": 4,
+          "effectKey": "13 Band Gain"
+        },
+        {
+          "key":"1k",
+          "value": 4,
+          "effectKey": "16 Band Gain"
+        },
+        {
+          "key":"2k",
+          "value": 0,
+          "effectKey": "19 Band Gain"
+        },
+        {
+          "key":"4k",
+          "value": 1,
+          "effectKey": "22 Band Gain"
+        },
+        {
+          "key":"8k",
+          "value": 3,
+          "effectKey": "25 Band Gain"
+        },
+        {
+          "key":"16k",
+          "value": 3,
+          "effectKey": "28 Band Gain"
+        }
+      ]
+    },
+    {
+      "zh_name": "慢歌",
+      "name": "slow song",
+      "valueList": [
+        {
+          "key":"31",
+          "value": 5,
+          "effectKey": "1 Band Gain"
+        },
+        {
+          "key":"63",
+          "value": 4,
+          "effectKey": "4 Band Gain"
+        },
+        {
+          "key":"125",
+          "value": 2,
+          "effectKey": "7 Band Gain"
+        },
+        {
+          "key":"250",
+          "value": 0,
+          "effectKey": "10 Band Gain"
+        },
+        {
+          "key":"500",
+          "value": -2,
+          "effectKey": "13 Band Gain"
+        },
+        {
+          "key":"1k",
+          "value": 0,
+          "effectKey": "16 Band Gain"
+        },
+        {
+          "key":"2k",
+          "value": 3,
+          "effectKey": "19 Band Gain"
+        },
+        {
+          "key":"4k",
+          "value": 6,
+          "effectKey": "22 Band Gain"
+        },
+        {
+          "key":"8k",
+          "value": 7,
+          "effectKey": "25 Band Gain"
+        },
+        {
+          "key":"16k",
+          "value": 8,
+          "effectKey": "28 Band Gain"
+        }
+      ]
+    },
+    {
+      "zh_name": "电子乐",
+      "name": "electronic music",
+      "valueList": [
+        {
+          "key":"31",
+          "value": 6,
+          "effectKey": "1 Band Gain"
+        },
+        {
+          "key":"63",
+          "value": 5,
+          "effectKey": "4 Band Gain"
+        },
+        {
+          "key":"125",
+          "value": 0,
+          "effectKey": "7 Band Gain"
+        },
+        {
+          "key":"250",
+          "value": -5,
+          "effectKey": "10 Band Gain"
+        },
+        {
+          "key":"500",
+          "value": -4,
+          "effectKey": "13 Band Gain"
+        },
+        {
+          "key":"1k",
+          "value": 0,
+          "effectKey": "16 Band Gain"
+        },
+        {
+          "key":"2k",
+          "value": 6,
+          "effectKey": "19 Band Gain"
+        },
+        {
+          "key":"4k",
+          "value": 8,
+          "effectKey": "22 Band Gain"
+        },
+        {
+          "key":"8k",
+          "value": 8,
+          "effectKey": "25 Band Gain"
+        },
+        {
+          "key":"16k",
+          "value": 7,
+          "effectKey": "28 Band Gain"
+        }
+      ]
+    },
+    {
+      "zh_name": "摇滚",
+      "name": "rock",
+      "valueList": [
+        {
+          "key":"31",
+          "value": 7,
+          "effectKey": "1 Band Gain"
+        },
+        {
+          "key":"63",
+          "value": 4,
+          "effectKey": "4 Band Gain"
+        },
+        {
+          "key":"125",
+          "value": -4,
+          "effectKey": "7 Band Gain"
+        },
+        {
+          "key":"250",
+          "value": 7,
+          "effectKey": "10 Band Gain"
+        },
+        {
+          "key":"500",
+          "value": -2,
+          "effectKey": "13 Band Gain"
+        },
+        {
+          "key":"1k",
+          "value": 1,
+          "effectKey": "16 Band Gain"
+        },
+        {
+          "key":"2k",
+          "value": 5,
+          "effectKey": "19 Band Gain"
+        },
+        {
+          "key":"4k",
+          "value": 7,
+          "effectKey": "22 Band Gain"
+        },
+        {
+          "key":"8k",
+          "value": 9,
+          "effectKey": "25 Band Gain"
+        },
+        {
+          "key":"16k",
+          "value": 9,
+          "effectKey": "28 Band Gain"
+        }
+      ]
+    },
+    {
+      "zh_name": "乡村",
+      "name": "country",
+      "valueList": [
+        {
+          "key":"31",
+          "value": 5,
+          "effectKey": "1 Band Gain"
+        },
+        {
+          "key":"63",
+          "value": 6,
+          "effectKey": "4 Band Gain"
+        },
+        {
+          "key":"125",
+          "value": 2,
+          "effectKey": "7 Band Gain"
+        },
+        {
+          "key":"250",
+          "value": -5,
+          "effectKey": "10 Band Gain"
+        },
+        {
+          "key":"500",
+          "value": 1,
+          "effectKey": "13 Band Gain"
+        },
+        {
+          "key":"1k",
+          "value": 1,
+          "effectKey": "16 Band Gain"
+        },
+        {
+          "key":"2k",
+          "value": -5,
+          "effectKey": "19 Band Gain"
+        },
+        {
+          "key":"4k",
+          "value": 3,
+          "effectKey": "22 Band Gain"
+        },
+        {
+          "key":"8k",
+          "value": 8,
+          "effectKey": "25 Band Gain"
+        },
+        {
+          "key":"16k",
+          "value": 5,
+          "effectKey": "28 Band Gain"
+        }
+      ]
+    },
+    {
+      "zh_name": "人声",
+      "name": "human voice",
+      "valueList": [
+        {
+          "key":"31",
+          "value": -2,
+          "effectKey": "1 Band Gain"
+        },
+        {
+          "key":"63",
+          "value": -1,
+          "effectKey": "4 Band Gain"
+        },
+        {
+          "key":"125",
+          "value": -1,
+          "effectKey": "7 Band Gain"
+        },
+        {
+          "key":"250",
+          "value": 0,
+          "effectKey": "10 Band Gain"
+        },
+        {
+          "key":"500",
+          "value": 3,
+          "effectKey": "13 Band Gain"
+        },
+        {
+          "key":"1k",
+          "value": 4,
+          "effectKey": "16 Band Gain"
+        },
+        {
+          "key":"2k",
+          "value": 3,
+          "effectKey": "19 Band Gain"
+        },
+        {
+          "key":"4k",
+          "value": 0,
+          "effectKey": "22 Band Gain"
+        },
+        {
+          "key":"8k",
+          "value": 0,
+          "effectKey": "25 Band Gain"
+        },
+        {
+          "key":"16k",
+          "value": 1,
+          "effectKey": "28 Band Gain"
+        }
+      ]
+    },
+    {
+      "zh_name": "30段均衡器",
+      "name": "30 adjust"
+    }
+  ]
+}

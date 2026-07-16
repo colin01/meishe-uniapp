@@ -1,0 +1,21 @@
+{
+  "category": 2,
+  "cover": "641C5CDE-BF3E-478D-A4C6-B5D5FA3AA9AD.jpg",
+  "kind": 2,
+  "minSdkVersion": "1.14.0",
+  "name": "golden glint",
+  "packageFileName": "641C5CDE-BF3E-478D-A4C6-B5D5FA3AA9AD.1.videofx",
+  "packageSize": 120540,
+  "ratioFlag": 0,
+  "supportedAspectRatio": "16v9|9v16",
+  "translation": [
+    {
+      "originalText": "golden glint",
+      "targetLanguage": "zh_CN",
+      "targetText": "金色闪烁"
+    }
+  ],
+  "type": 9,
+  "uuid": "641C5CDE-BF3E-478D-A4C6-B5D5FA3AA9AD",
+  "version": 1
+}

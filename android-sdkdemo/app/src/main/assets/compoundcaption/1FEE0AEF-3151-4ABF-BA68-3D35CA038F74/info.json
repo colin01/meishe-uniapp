@@ -1,0 +1,21 @@
+{
+  "category": 1,
+  "cover": "1FEE0AEF-3151-4ABF-BA68-3D35CA038F74.webp",
+  "minSdkVersion": "2.9.0",
+  "name": "Site title",
+  "packageFileName": "1FEE0AEF-3151-4ABF-BA68-3D35CA038F74.2.compoundcaption",
+  "packageSize": 90060,
+  "previewVideo": "1FEE0AEF-3151-4ABF-BA68-3D35CA038F74.mp4",
+  "ratioFlag": 1,
+  "supportedAspectRatio": "16v9|1v1|9v16|4v3|3v4|18v9|9v18",
+  "translation": [
+    {
+      "originalText": "Site title",
+      "targetLanguage": "zh_CN",
+      "targetText": "地点标题"
+    }
+  ],
+  "type": 15,
+  "uuid": "1FEE0AEF-3151-4ABF-BA68-3D35CA038F74",
+  "version": 2
+}

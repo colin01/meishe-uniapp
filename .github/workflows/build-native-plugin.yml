@@ -14,6 +14,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Verify checked-in Android SDK inputs
+        working-directory: android-sdkdemo
+        shell: bash
+        run: |
+          set -eo pipefail
+          test -f libBase/libs/NvAndroidStreamingSdk.jar
+          test -f libBase/libs/extension-flac-release.aar
+          test -f libBase/libs/libMeicamAI-3.8.1.1.aar
+          test -f libBase/libs/library-core-release.aar
+          test -f libBase/libs/library-ui-release.aar
+          test -f app/src/main/assets/meishesdk.lic
+
       - name: Set up JDK 17 for Android SDK tools
         uses: actions/setup-java@v4
         with:
@@ -69,6 +81,9 @@ jobs:
           cp android-sdkdemo/MCutSame/build/outputs/aar/MCutSame-release.aar _artifacts/android/
           cp android-sdkdemo/MMakeup/build/outputs/aar/MMakeup-release.aar _artifacts/android/
           cp android-sdkdemo/libBase/libs/*.aar _artifacts/android/
+          # The Meishe Java API is a separate SDK JAR. libBase's compiled classes reference
+          # it, so it must travel with the AAR set consumed by uni-app hosts.
+          cp android-sdkdemo/libBase/libs/NvAndroidStreamingSdk.jar _artifacts/android/
           cp android-sdkdemo/app/src/main/assets/meishesdk.lic _artifacts/android/assets/
           find _artifacts/android -type f -print
 

@@ -1,0 +1,21 @@
+{
+  "category": 3,
+  "cover": "FF2D36C5-6C91-4750-9648-BD119967FE66.png",
+  "kind": 5,
+  "minSdkVersion": "2.18.0",
+  "name": "chinLength",
+  "packageFileName": "FF2D36C5-6C91-4750-9648-BD119967FE66.3.facemesh",
+  "packageSize": 1124,
+  "ratioFlag": 1,
+  "supportedAspectRatio": "9v16",
+  "translation": [
+    {
+      "originalText": "chinLength",
+      "targetLanguage": "zh_CN",
+      "targetText": "下巴"
+    }
+  ],
+  "type": 20,
+  "uuid": "FF2D36C5-6C91-4750-9648-BD119967FE66",
+  "version": 3
+}

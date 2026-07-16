@@ -1,0 +1,21 @@
+{
+  "category": 3,
+  "cover": "71C4CF51-09D7-4CB0-9C24-5DE9375220AE.png",
+  "kind": 6,
+  "minSdkVersion": "2.18.0",
+  "name": "dayan",
+  "packageFileName": "71C4CF51-09D7-4CB0-9C24-5DE9375220AE.3.facemesh",
+  "packageSize": 1291,
+  "ratioFlag": 1,
+  "supportedAspectRatio": "9v16",
+  "translation": [
+    {
+      "originalText": "dayan",
+      "targetLanguage": "zh_CN",
+      "targetText": "大眼"
+    }
+  ],
+  "type": 20,
+  "uuid": "71C4CF51-09D7-4CB0-9C24-5DE9375220AE",
+  "version": 3
+}

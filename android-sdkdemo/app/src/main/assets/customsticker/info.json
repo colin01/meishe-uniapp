@@ -1,0 +1,21 @@
+{
+  "fxInfoList": [
+    {
+      "name": "无效果",
+      "fxFileName": "E14FEE65-71A0-4717-9D66-3397B6C11223.5.animatedsticker",
+      "fxPackageId": "E14FEE65-71A0-4717-9D66-3397B6C11223",
+      "fxLicFileName": "E14FEE65-71A0-4717-9D66-3397B6C11223.lic",
+      "imageName": "E14FEE65-71A0-4717-9D66-3397B6C11223.png",
+      "fitRatio": "15"
+    },
+    {
+      "name": "旋入",
+      "fxFileName": "5D9FA998-7600-492F-9DF4-BC2FA5E869BD.7.animatedsticker",
+      "fxPackageId": "5D9FA998-7600-492F-9DF4-BC2FA5E869BD",
+      "fxLicFileName": "5D9FA998-7600-492F-9DF4-BC2FA5E869BD.lic",
+      "imageName": "5D9FA998-7600-492F-9DF4-BC2FA5E869BD.png",
+      "fitRatio": "15"
+    }
+  ]
+}
+
