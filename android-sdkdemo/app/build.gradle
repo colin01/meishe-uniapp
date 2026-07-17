@@ -112,6 +112,7 @@ dependencies {
     // plugin AAR, avoiding embedded-AAR and duplicate-ExoPlayer problems.
     compileOnly files(
             '../libBase/libs/cafconvertor.aar',
+            '../libBase/libs/libMeicamAI-3.8.1.1.aar',
             '../libBase/libs/library-core-release.aar',
             '../libBase/libs/library-ui-release.aar'
     )
