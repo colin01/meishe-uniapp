@@ -4,8 +4,6 @@ import android.content.Context;
 import android.graphics.Rect;
 import android.view.View;
 
-import com.meishe.base.utils.ScreenUtils;
-import com.meishe.sdkdemo.MSApplication;
 import com.meishe.sdkdemo.R;
 
 import java.util.ArrayList;
@@ -27,15 +25,17 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
     private int screenWidth;
     private int itemWidth;
     private List<Integer> spanRightList;
+    private final Context context;
     int marginSizeStart;
     int marginSizeMiddle;
 
     public GridSpacingItemDecoration(Context context, int spanCount) {
+        this.context = context.getApplicationContext();
         this.spanCount = spanCount;
-        int marginSizeLeftAndRight = (int) MSApplication.getContext().getResources().getDimension(R.dimen.select_recycle_marginLeftAndRight);
-        marginSizeStart = (int) MSApplication.getContext().getResources().getDimension(R.dimen.select_item_start_end);
-        marginSizeMiddle = (int) MSApplication.getContext().getResources().getDimension(R.dimen.select_item_between);
-        screenWidth = ScreenUtils.getScreenWidth()- marginSizeLeftAndRight * 2;
+        int marginSizeLeftAndRight = (int) this.context.getResources().getDimension(R.dimen.select_recycle_marginLeftAndRight);
+        marginSizeStart = (int) this.context.getResources().getDimension(R.dimen.select_item_start_end);
+        marginSizeMiddle = (int) this.context.getResources().getDimension(R.dimen.select_item_between);
+        screenWidth = this.context.getResources().getDisplayMetrics().widthPixels - marginSizeLeftAndRight * 2;
         spanRightList = new ArrayList<>();
         this.itemWidth = (screenWidth - marginSizeStart * 2 - marginSizeMiddle * (GRIDITEMCOUNT - 1)) / GRIDITEMCOUNT;
     }
@@ -48,7 +48,7 @@ public class GridSpacingItemDecoration extends RecyclerView.ItemDecoration {
         if (surplus <= 0) {
             return;
         }
-        int startSpace = ScreenUtils.dip2px(MSApplication.getContext(), 3);
+        int startSpace = (int) (this.context.getResources().getDisplayMetrics().density * 3 + 0.5f);
         int column = position % spanCount; // item column
 
         int itemWidthInScreen = screenWidth / spanCount;

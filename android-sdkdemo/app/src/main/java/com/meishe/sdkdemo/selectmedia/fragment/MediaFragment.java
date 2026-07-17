@@ -157,6 +157,10 @@ public class MediaFragment extends BaseFragment implements OnTotalNumChange {
         MediaUtils.getMediasByType(mActivity, index, new MediaUtils.LocalMediaCallback() {
             @Override
             public void onLocalMediaCallback(final List<MediaData> allMediaTemp) {
+                Context context = getContext();
+                if (!isAdded() || context == null || mediaRecycler == null) {
+                    return;
+                }
                 MediaUtils.ListOfAllMedia listOfAllMedia = MediaUtils.groupListByTime(allMediaTemp);
                 lists = listOfAllMedia.getListOfAll();
                 listOfOut = listOfAllMedia.getListOfParent();
@@ -167,11 +171,11 @@ public class MediaFragment extends BaseFragment implements OnTotalNumChange {
                     adapter.setOnClipAddListener(mOnClipAddListener);
                 }
                 mediaRecycler.setAdapter(adapter);
-                layoutManager = new GridLayoutManager(getContext(), GRIDITEMCOUNT);
+                layoutManager = new GridLayoutManager(context, GRIDITEMCOUNT);
                 SectionedSpanSizeLookup lookup = new SectionedSpanSizeLookup(adapter, layoutManager);
                 layoutManager.setSpanSizeLookup(lookup);
                 mediaRecycler.setLayoutManager(layoutManager);
-                mediaRecycler.addItemDecoration(new GridSpacingItemDecoration(getContext(), GRIDITEMCOUNT));
+                mediaRecycler.addItemDecoration(new GridSpacingItemDecoration(context, GRIDITEMCOUNT));
                 loadMediaOk = true;
                 if (null != customPopWindow && customPopWindow.isShowing()) {
                     customPopWindow.dissmiss();

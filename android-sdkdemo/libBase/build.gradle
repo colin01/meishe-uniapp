@@ -71,7 +71,6 @@ dependencies {
     //为了处理glide跟Androidx兼容 glide is compatible with Androidx for handling
     annotationProcessor rootProject.ext.dependencies.extAnnotation
     kapt rootProject.ext.dependencies.extGlideAnnotation
-    implementation rootProject.ext.dependencies.extOkhttpIntegration
     // webpdecoder
     api rootProject.ext.dependencies.extWebpdecoder
 
