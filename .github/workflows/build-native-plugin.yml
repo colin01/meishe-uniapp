@@ -111,6 +111,22 @@ jobs:
           cp android-sdkdemo/app/src/main/assets/meishesdk.lic _artifacts/android/assets/
           find _artifacts/android -type f -print
 
+      - name: Verify Android Glide entry ownership
+        shell: bash
+        run: |
+          set -eo pipefail
+          forbidden='com/bumptech/glide/GeneratedAppGlideModuleImpl.class'
+          while IFS= read -r aar; do
+            classes="$(mktemp)"
+            if unzip -p "$aar" classes.jar > "$classes" && [ -s "$classes" ]; then
+              if jar tf "$classes" | grep -Fxq "$forbidden"; then
+                echo "::error title=Duplicate Glide app module::$aar packages $forbidden; plugins must only provide Glide library modules."
+                exit 1
+              fi
+            fi
+            rm -f "$classes"
+          done < <(find _artifacts/android -type f -name '*.aar' -print)
+
       - name: Upload Android artifact
         uses: actions/upload-artifact@v4
         with:
